@@ -1,0 +1,78 @@
+.variable-form h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.variable-form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.variable-form-group .entity {
+    display: flex;
+    flex-direction: column;
+}
+
+.variable-form-group .entity .multi-input {
+    display: flex;
+}
+
+.variable-form-group label {
+    display: block;
+    text-transform: capitalize;
+    margin-bottom: 4px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+
+.variable-form-group label div:last-child {
+    font-size: 1rem;
+}
+
+.variable-form-group textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    border: 2px solid var(--text-primary-color);
+    border-radius: 2px;
+    padding: 4px;
+    margin-bottom: 2px;
+    outline: none;
+    height: 30px;
+    flex: auto;
+}
+
+.btn-variable-form {
+    font-size: 1rem;
+    height: 30px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.btn-variable-form-menu {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+
+.variable-form-menu label {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.variable-form-menu input {
+    font-family: inherit;
+    font-size: 1rem;
+    border: 2px solid var(--text-primary-color);
+    border-radius: 2px;
+    padding: 4px;
+    margin-bottom: 2px;
+    outline: none;
+    height: 35px;
+    flex: auto;
+    margin-right: 20px;
+}

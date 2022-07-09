@@ -1,0 +1,51 @@
+.filter-input-form {
+    position: relative;
+}
+
+.filter-input-form input {
+    width: 100%;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: 2px solid var(--text-primary-color);
+    border-radius: 2px;
+    padding: 12px;
+    outline: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: var(--bg-primary-color);
+    color: var(--text-primary-color);
+}
+
+.filter-input-form input:focus {
+    background-color: var(--text-primary-color);
+    color: var(--bg-primary-color);
+}
+
+.filter-input-form .dropdown {
+    background-color: var(--bg-primary-color);
+    position: absolute;
+    max-height: 0;
+    width: 100%;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    scrollbar-width: auto;
+    scrollbar-color:  var(--text-primary-color) var(--bg-primary-color);
+}
+
+.filter-input-form .dropdown.open {
+    max-height: 200px;
+    overflow: auto;
+}
+
+.filter-input-form .dropdown li {
+    padding: 12px;
+    cursor: pointer;
+}
+
+.filter-input-form .dropdown li:hover {
+    background-color: var(--text-primary-color);
+    color: var(--bg-primary-color);
+}

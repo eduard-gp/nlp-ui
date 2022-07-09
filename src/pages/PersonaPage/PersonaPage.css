@@ -1,0 +1,14 @@
+.persona-filter-menu {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+}
+
+.persona-filter-menu .persona-filter {
+    flex: 0 1 500px;
+    margin-right: 40px;
+}
+
+.persona-filter-menu .language-filter {
+    flex: 0 1 130px;
+}

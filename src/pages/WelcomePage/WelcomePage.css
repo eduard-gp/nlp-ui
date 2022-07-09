@@ -1,0 +1,45 @@
+.welcome-navbar {
+    background-color: var(--bg-primary-color);
+    border-bottom: 1px solid var(--text-primary-color);
+    padding: 6px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    box-shadow: 1px 2px 1px 2px var(--text-primary-color);
+}
+
+.welcome-navbar ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
+.welcome-navbar ul a {
+    text-decoration: none;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.nav-login-btn {
+    background-color: var(--text-primary-color);
+    color: var(--bg-primary-color);
+    border: 2px solid var(--text-primary-color);
+}
+
+.nav-signup-btn {
+    background-color: var(--bg-primary-color);
+    color: var(--text-primary-color);
+    border: 2px solid var(--text-primary-color);
+}
+
+.welcome-main-container {
+    display: flex;
+    justify-content: center;
+}
+
+.Welcome-inner-container {
+    background-color: #ccc;
+    width: 80%;
+    margin-top: 20px;
+}

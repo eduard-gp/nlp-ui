@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root, :root.light-theme {
+  --bg-primary-color: #fcfcfc;
+  --bg-primary-color-darker: #e6e6e6;
+  --bg-primary-color-lighter: #ffffff;
+  --bg-secundary-color: #003049;
+  --accent-color: #C1121F;
+  --text-primary-color: #222;
+  --text-primary-color-darker: #0d0d0d;
+  --text-primary-color-darker: rgb(20, 20, 20);
+  --text-primary-color-lighter: #4d4d4d;
+  --text-secondary-color: #FDF0D5;
+  --error-color: #C1121F;
+}
+
+:root.dark-theme {
+  --bg-primary-color: #191919;
+  --bg-primary-color: #2c2c2c;
+  --bg-primary-color-darker: #0d0d0d;
+  --bg-primary-color-darker: #242424;
+  --bg-primary-color-lighter: #404040;
+  --bg-secundary-color: #2D4263;
+  --accent-color: #C84B31;
+  --text-primary-color: #f2f2f2;
+  --text-primary-color: #cccccc;
+  --text-primary-color-darker: #d9d9d9;
+  --text-primary-color-darker: #bababa;
+  --text-primary-color-lighter: #ffffff;
+  --text-secondary-color: #ECDBBA;
+  --error-color: #C1121F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-primary-color);
+  color: var(--text-primary-color);
+}
+
+.btn {
+  background-color: var(--bg-primary-color);
+  font-family: inherit;
+  font-size: 2rem;
+  color: var(--text-primary-color);
+  border: 2px solid var(--text-primary-color);
+  border-radius: 4px;
+  padding: 5px 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(0.99);
+}
+
+.btn:disabled,
+.btn[disabled] {
+  transform: scale(1);
+  cursor: not-allowed;
+  background-color: var(--bg-primary-color-darker);
+  color: var(--text-primary-color-darker);
+  border-color: var(--text-primary-color-darker);
+  text-decoration: line-through;
+}
+
