@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-function VariableFormMultiInputField({
+function StaticFormMultiInputField({
     elements,
     label,
     handleMultiInputFieldChange,
     handleMultiInputFieldDelete,
-    handleDeleteGroup,
     handleAddField,
     disabled
 }: {
@@ -13,13 +12,18 @@ function VariableFormMultiInputField({
     label: string,
     handleMultiInputFieldChange: (e: React.ChangeEvent<HTMLTextAreaElement>, label: string, index: number) => void,
     handleMultiInputFieldDelete: (e: React.MouseEvent<HTMLButtonElement>, label: string, index: number) => void,
-    handleDeleteGroup: (e: React.MouseEvent<HTMLButtonElement>, label: string) => void,
     handleAddField: (e: React.MouseEvent<HTMLButtonElement>, label: string) => void,
     disabled: boolean,
 }) {
+    // const [disabledState, setDisabledState] = useState<boolean>(disabled);
+
+    // useEffect(() => {
+    //     setDisabledState(disabled);
+    // }, [disabled]);
+
     return (
         <div className="variable-form-group">
-            <label><div>{`${label}:`}</div><div>(Type: Multi Input)</div></label>
+            <label><div>{`${label}:`}</div><div>(Type: Static Multi Input)</div></label>
             <div className="entity">
                 {elements[label].map((element: any, index: number) => 
                     <div className="multi-input" key={`${label}-${index}`}>
@@ -37,11 +41,6 @@ function VariableFormMultiInputField({
             </div>
             <div className="buttons-container">
                 <button className="btn btn-variable-form"
-                    onClick={(e) => handleDeleteGroup(e, label)}
-                    disabled={disabled}>
-                        Delete Group
-                </button>
-                <button className="btn btn-variable-form"
                     onClick={(e) => handleAddField(e, label)}
                     disabled={disabled}>
                         Add Field
@@ -51,4 +50,4 @@ function VariableFormMultiInputField({
     );
 }
 
-export default VariableFormMultiInputField;
+export default StaticFormMultiInputField;

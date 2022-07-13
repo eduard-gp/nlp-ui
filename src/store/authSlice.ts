@@ -50,3 +50,5 @@ const authSlice = createSlice({
 export default authSlice.reducer;
 
 export const { setLogginStatus } = authSlice.actions;
+
+export const selectLogginStatus = (state: any) => state.auth.isLogged;

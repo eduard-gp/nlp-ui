@@ -1,4 +1,4 @@
-.variable-form h1 {
+.variable-form-title {
     margin-bottom: 20px;
     font-size: 2rem;
 }
@@ -62,6 +62,7 @@
 .variable-form-menu label {
     font-size: 1.2rem;
     font-weight: 500;
+    margin-right: 5px;
 }
 
 .variable-form-menu input {

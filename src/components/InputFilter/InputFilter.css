@@ -1,5 +1,6 @@
 .filter-input-form {
     position: relative;
+    z-index: 10;
 }
 
 .filter-input-form input {

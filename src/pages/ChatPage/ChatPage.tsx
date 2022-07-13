@@ -13,7 +13,7 @@ function ChatPage() {
         <div>
             <h1>Chat Page</h1>
             <button onClick={() => dispatch(checkAuth())}>CheckAuth</button>
-            {JSON.stringify(state)}
+            {/* {JSON.stringify(state)} */}
         </div>
     )
 }

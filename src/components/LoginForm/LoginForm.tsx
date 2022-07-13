@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../config/config";
 import "./LoginForm.css"
 import { useDispatch, useSelector } from "react-redux";
-import { checkAuth, setLogginStatus } from "../../store/authSlice";
+import { checkAuth, selectLogginStatus, setLogginStatus } from "../../store/authSlice";
 import { AppDispatch, RootState } from "../../store/store";
 
 interface LogginFormError {
@@ -25,7 +25,7 @@ function LoginForm() {
     });
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
-    const isLogged = useSelector<RootState>(state => state.auth.isLogged);
+    const isLogged = useSelector<RootState>(selectLogginStatus);
 
 
     useEffect(() => {

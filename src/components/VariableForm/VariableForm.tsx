@@ -1,65 +1,59 @@
-import { copyFile } from "fs";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { VariableFormInputField, VariableFormMultiInputField } from "../";
 
 import "./VariableForm.css";
 
 function VariableForm({
     elements,
-    title
+    title,
+    disabled,
+    handleFormChange,
 }: {
     elements: any,
-    title: string
+    title?: string,
+    disabled: boolean,
+    handleFormChange: any
 }) {
-    const [formState, setFormState] = useState([]);
-    const [initialFromState, setInitialFormState] = useState([]);
-    const [disabled, setDisabled] = useState(true);
-    const [newFieldLabel, setNewFieldLabel] = useState("");
+    const [newFieldLabel, setNewFieldLabel] = useState<string>("");
 
     function simpleDeepCopy(obj: any): any {
         return JSON.parse(JSON.stringify(obj));
     }
 
-    useEffect(() => {
-        setFormState(elements);
-        setInitialFormState(elements);
-        setDisabled(true);
-        setNewFieldLabel("");
-    }, [elements]);
-
     function handleInputFieldChange(e: React.ChangeEvent<HTMLTextAreaElement>, key: string) {
-        const copyFormState = simpleDeepCopy(formState);
-        setFormState({ ...copyFormState, [key]: e.target.value })
+        const copyFormState = simpleDeepCopy(elements);
+        copyFormState[key] = e.target.value;
+        handleFormChange(copyFormState);
     }
 
     function handleDeleteGroup(e: React.MouseEvent<HTMLButtonElement>, key: string) {
-        const copyFormState = simpleDeepCopy(formState);
+        const copyFormState = simpleDeepCopy(elements);
         delete copyFormState[key];
-        setFormState(copyFormState);
+        handleFormChange(copyFormState);
     }
 
-    function handleMultiInputFieldChange(e: React.ChangeEvent<HTMLTextAreaElement>, label: string, index: number) {
-        const copyFormState = simpleDeepCopy(formState);
-        copyFormState[label][index] = e.target.value;
-        setFormState(copyFormState);
+    function handleMultiInputFieldChange(e: React.ChangeEvent<HTMLTextAreaElement>, key: string, index: number) {
+        const copyFormState = simpleDeepCopy(elements);
+        copyFormState[key][index] = e.target.value;
+        handleFormChange(copyFormState);
     }
 
-    function handleMultiInputFieldDelete(e: React.MouseEvent<HTMLButtonElement>, label: string, index: number) {
-        const copyFormState = simpleDeepCopy(formState);
+    function handleMultiInputFieldDelete(e: React.MouseEvent<HTMLButtonElement>, key: string, index: number) {
+        const copyFormState = simpleDeepCopy(elements);
         const copyArray = [];
-        for (let i = 0; i < copyFormState[label].length; i++) {
+        for (let i = 0; i < copyFormState[key].length; i++) {
             if (i !== index) {
-                copyArray.push(copyFormState[label][i]);
+                copyArray.push(copyFormState[key][i]);
             }
         }
-        copyFormState[label] = copyArray;
-        setFormState(copyFormState);
+        copyFormState[key] = copyArray;
+        handleFormChange(copyFormState);
     }
 
-    function handleAddField(e: React.MouseEvent<HTMLButtonElement>, label: string) {
-        const copyFormState = simpleDeepCopy(formState);
-        copyFormState[label].push("");
-        setFormState(copyFormState);
+    function handleAddField(e: React.MouseEvent<HTMLButtonElement>, key: string) {
+        const copyFormState = simpleDeepCopy(elements);
+        copyFormState[key].push("");
+        handleFormChange(copyFormState);
     }
 
     function handleNewFieldLabelChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -67,16 +61,16 @@ function VariableForm({
     }
 
     function handleAddVariableInputField() {
-        const copyFormState = simpleDeepCopy(formState);
+        const copyFormState = simpleDeepCopy(elements);
         copyFormState[newFieldLabel] = "";
-        setFormState(copyFormState);
+        handleFormChange(copyFormState);
         setNewFieldLabel("");
     }
 
     function handleAddVariableMultiInputField() {
-        const copyFormState = simpleDeepCopy(formState);
+        const copyFormState = simpleDeepCopy(elements);
         copyFormState[newFieldLabel] = [""];
-        setFormState(copyFormState);
+        handleFormChange(copyFormState);
         setNewFieldLabel("");
     }
 
@@ -108,31 +102,30 @@ function VariableForm({
         return form;
     }
 
-    return (
-        <div className="variable-form">
-            <h1>{title}</h1>
-            {constructForm(formState)}
-            <div className="variable-form-menu">
-                <button className="btn btn-variable-form-menu"
-                    onClick={() => setDisabled(false)}>Edit</button>
-                {/* <button className="btn btn-variable-form-menu">Save</button> */}
-                {/* <button className="btn btn-variable-form-menu">Discard changes</button> */}
-                <label>Label:</label>
-                <input className="label-input"
-                    value={newFieldLabel}
-                    onChange={handleNewFieldLabelChange}
-                    disabled={disabled} />
-                <button className="btn btn-variable-form-menu"
-                    onClick={handleAddVariableInputField}
-                    disabled={disabled}>Add Input</button>
-                <button className="btn btn-variable-form-menu"
-                    onClick={handleAddVariableMultiInputField}
-                    disabled={disabled}>Add Multi Input</button>
+    if (!elements) {
+        return <div></div>
+    } else {
+        return (
+            <div className="variable-form">
+                {title && <h1 className="variable-form-title">{title}</h1>}
+                {constructForm(elements)}
+                <div className="variable-form-menu">
+                    <label>Label:</label>
+                    <input className="label-input"
+                        value={newFieldLabel}
+                        onChange={handleNewFieldLabelChange}
+                        disabled={disabled} />
+                    <button className="btn btn-variable-form-menu"
+                        onClick={handleAddVariableInputField}
+                        disabled={disabled}>Add Input</button>
+                    <button className="btn btn-variable-form-menu"
+                        onClick={handleAddVariableMultiInputField}
+                        disabled={disabled}>Add Multi Input</button>
+                </div>
             </div>
-            {JSON.stringify(formState)}
-            {disabled}
-        </div>
-    );
+        );
+    }
+
 }
 
 export default VariableForm;

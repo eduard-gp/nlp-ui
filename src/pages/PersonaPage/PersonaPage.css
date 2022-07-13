@@ -1,7 +1,7 @@
 .persona-filter-menu {
-    /* background-color: aqua; */
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .persona-filter-menu .persona-filter {
@@ -10,5 +10,49 @@
 }
 
 .persona-filter-menu .language-filter {
-    flex: 0 1 130px;
+    flex: 0 1 200px;
+    margin-right: 40px;
+}
+
+.persona-edit-menu {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 10px;
+}
+
+.persona-edit-menu .btn {
+    margin-right: 20px;
+}
+
+.persona-dialog-title {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.persona-language-form select {
+    font-family: inherit;
+    font-size: 1rem;
+    border: 2px solid var(--text-primary-color);
+    border-radius: 2px;
+    padding: 4px;
+    margin-bottom: 2px;
+    outline: none;
+    height: 30px;
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.persona-language-form label {
+    display: block;
+    text-transform: capitalize;
+    margin-bottom: 4px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+
+.persona-form-main-container > div {
+    margin-bottom: 40px;
 }

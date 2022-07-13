@@ -5,7 +5,7 @@ function DashboardPage() {
     return (
         <main>
             <NavBar></NavBar>
-            <section>
+            <section className="dashboard-main-container">
                 <Outlet />
             </section>
         </main>

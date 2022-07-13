@@ -30,8 +30,8 @@ root.render(
             <Route path="signup" element={<SignUpPage />} />
           </Route>
             <Route path="/dashboard" element={<RequireAuth><DashboardPage /></RequireAuth>}>
-              <Route index element={<RequireAuth><ChatPage /></RequireAuth>} />
-              <Route path="personas" element={<RequireAuth><PersonaPage /></RequireAuth>} />
+              <Route index element={<ChatPage /> }/>
+              <Route path="personas" element={<PersonaPage />} />
             </Route>
           <Route path="/" element={<WelcomePage />} />
           <Route path="*" element={<NotFoundPage />} />
