@@ -4,185 +4,17 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { InputFilter, PersonaDescriptionForm, PersonaDialogForm, VariableForm } from "../../components";
 import { BASE_URL } from "../../config/config";
-import { getInfo, selectLabels, selectLanguages } from "../../store/infoSlice";
+import { getInfo, selectLanguages } from "../../store/infoSlice";
 import { selectDescriptionForm, selectDialogForm, selectDisabledStatus, selectForm, selectLanguageForm, selectSelectedPersona, setDescriptionForm, setDialogForm, setDisabled, setForm, setLanguageForm, setSelectedPersona } from "../../store/personaFormSlice";
 import { addPersona, getPersonas, selectPersonas, updatePersona } from "../../store/personasSlice";
 import { AppDispatch } from "../../store/store";
 import { DialogEntity, Persona, SupportedLanguage } from "./models";
 import "./PersonaPage.css";
 
-// function PersonaPage() {
-//     const [personas, setPersonas] = useState<Array<Persona>>([]);
-//     const [filteredAfterLanguagePersonas, setFilteredAfterLanguagePersonas] = useState<Array<Persona>>([]);
-//     const [currentPersona, setCurrentPersona] = useState<Persona | null>(null);
-//     const [languages, setLanguages] = useState<Array<SupportedLanguage>>([]);
-//     const [currentLanguage, setCurrentLanguage] = useState<SupportedLanguage | null>(null);
-//     const [formState, setFormState] = useState<Persona | null>(null);
-//     const [initialFormState, setInitialFormState] = useState<Persona | null>(null);
-//     const [disabled, setDisabled] = useState<boolean>(true);
-
-//     const dispatch = useDispatch<AppDispatch>();
-//     const p = useSelector((state: any) => state.personas.personas);
-
-//     useEffect(() => {
-//         dispatch(getPersonas());
-//     });
-
-//     // useEffect(() => {
-//     //     (async () => {
-//     //         try {
-//     //             const languagesPromise = axios({
-//     //                 method: "get",
-//     //                 url: `${BASE_URL}/info/languages`,
-//     //                 withCredentials: true
-//     //             });
-
-//     //             const peronasPromise = axios({
-//     //                 method: "get",
-//     //                 url: `${BASE_URL}/personas`,
-//     //                 withCredentials: true
-//     //             });
-
-//     //             const [responseLanguages, responsePersonas] = await Promise.all(
-//     //                                                         [languagesPromise, peronasPromise]);
-//     //             setLanguages(responseLanguages.data);
-//     //             setPersonas(responsePersonas.data);
-//     //             console.log(responsePersonas.data);
-//     //         } catch (error) {
-//     //             console.error(error);
-//     //         }
-//     //     })();
-//     // }, [])
-
-//     // useEffect(() => {
-//     //     if (languages.length > 0) {
-//     //         setCurrentLanguage(languages[0]);
-//     //     }
-//     // }, [languages]);
-
-//     // useEffect(() => {
-//     //     if (!currentLanguage) {
-//     //         return;
-//     //     }
-//     //     setFilteredAfterLanguagePersonas(
-//     //         personas.filter((persona: Persona) => persona.language.toLowerCase() === currentLanguage.language.toLowerCase())
-//     //     );
-//     // }, [currentLanguage, personas]);
-
-//     function simpleDeepCopy(obj: any): any {
-//         return JSON.parse(JSON.stringify(obj));
-//     }
-
-//     function projectPersona(persona: Persona): string {
-//         return persona.description.case;
-//     }
-
-//     function handleSelectedPersona(persona: Persona) {
-//         setCurrentPersona(persona);
-//         setFormState(persona);
-//         setInitialFormState(persona);
-//     }
-
-//     function projectLanguage(language: SupportedLanguage): string {
-//         return language.language;
-//     }
-
-//     function handleSelectedLanguage(language: SupportedLanguage) {
-//         setCurrentLanguage(language);
-//     }
-
-//     function handleEdit(e: React.MouseEvent<HTMLButtonElement>) {
-//         setDisabled(false);
-//     }
-
-//     function handleSave(e: React.MouseEvent<HTMLButtonElement>) {
-//         console.log(formState);
-//     }
-
-//     function handleDiscard(e: React.MouseEvent<HTMLButtonElement>) {
-//         setDisabled(true);
-//         setCurrentPersona(initialFormState);
-//         console.log("initial", initialFormState);
-//     }
-
-//     function handleDescriptionChange(descriptionForm: any) {
-//         if (formState) {
-//             const newFormState = simpleDeepCopy(formState);
-//             newFormState["description"] = descriptionForm;
-//             setFormState(newFormState);
-//             console.log(newFormState);
-//         }
-//     }
-
-//     function handleDialogChange(descriptionForm: any) {
-//         if (formState) {
-//             const newFormState = simpleDeepCopy(formState);
-//             newFormState["dialog"] = descriptionForm;
-//             setFormState(newFormState);
-//             console.log(newFormState);
-//         }
-//     }
-
-//     return (
-//         <div>
-//             {/* <div className="persona-filter-menu">
-//                 <div className="persona-filter">
-//                     <InputFilter elements={filteredAfterLanguagePersonas}
-//                         project={projectPersona}
-//                         handleSelectedElement={handleSelectedPersona}
-//                         placeholder={"Type to filter"}
-//                         disabled={false} />
-//                 </div>
-//                 <div className="language-filter">
-//                     <InputFilter elements={languages}
-//                         project={projectLanguage}
-//                         handleSelectedElement={handleSelectedLanguage}
-//                         placeholder={"Languge"}
-//                         initialElement={currentLanguage}
-//                         disabled={false} />
-//                 </div>
-//             </div>
-//             <div className="persona-edit-menu">
-//                 <button className="btn"
-//                         onClick={handleEdit}>Edit</button>
-//                 <button className="btn"
-//                         onClick={handleSave}>Save</button>
-//                 <button className="btn"
-//                         onClick={handleDiscard}>Discard</button>
-//             </div>
-//             <div>
-//                 <PersonaDescriptionForm
-//                     disabled={disabled}
-//                     title="Description"
-//                     description={formState?.description}
-//                     handleFormChange={handleDescriptionChange}/>
-//                 <PersonaDialogForm
-//                     disabled={disabled}
-//                     title="Dialog"
-//                     dialog={formState?.dialog}
-//                     handleFormChange={handleDialogChange} />
-//             </div> */}
-//             {/* {JSON.stringify(currentPersona)} */}
-//             {/* {JSON.stringify(p)} */}
-//         </div>
-//     );
-// }
-
 function PersonaPage() {
-    // const [personas, setPersonas] = useState<Array<Persona>>([]);
-    // const [filteredAfterLanguagePersonas, setFilteredAfterLanguagePersonas] = useState<Array<Persona>>([]);
-    // const [currentPersona, setCurrentPersona] = useState<Persona | null>(null);
-    // const [languages, setLanguages] = useState<Array<SupportedLanguage>>([]);
-    // const [currentLanguage, setCurrentLanguage] = useState<SupportedLanguage | null>(null);
-    // const [formState, setFormState] = useState<Persona | null>(null);
-    // const [initialFormState, setInitialFormState] = useState<Persona | null>(null);
-    // const [disabled, setDisabled] = useState<boolean>(true);
-
     const dispatch = useDispatch<AppDispatch>();
     const personas = useSelector(selectPersonas);
     const languages = useSelector(selectLanguages);
-    // const labels = useSelector(selectLabels);
-    const s = useSelector((state: any) => state);
 
     const [selectedLanguage, setSelectedLanguage] = useState<SupportedLanguage>({ _id: -1, language: "multilingual" });
 
@@ -202,10 +34,6 @@ function PersonaPage() {
         dispatch(setForm(selectedPersona));
     }, [selectedPersona]);
 
-    useEffect(() => {
-        console.log(s);
-    }, [s]);
-
     function projectPersona(persona: Persona): string {
         if (persona) {
             return persona.description.case;
@@ -218,7 +46,6 @@ function PersonaPage() {
 
         const language = languages.find((l: SupportedLanguage) => projectLanguage(l).toLowerCase() === persona.language.toLowerCase());
         setSelectedLanguage(language);
-        console.log(language);
     }
 
     function projectLanguage(language: SupportedLanguage): string {

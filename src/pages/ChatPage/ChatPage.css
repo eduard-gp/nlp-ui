@@ -1,0 +1,14 @@
+.persona-language-tag {
+    font-size: 1.4rem;
+}
+
+.conversation-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.conversation-menu .btn {
+    font-size: 1.8rem;
+}

@@ -4,13 +4,15 @@ import authReducer from "./authSlice";
 import personasReducer from "./personasSlice";
 import infoReducer from "./infoSlice";
 import personaFormReducer from "./personaFormSlice";
+import chatReducer from "./chatSlice";
 
 const store = configureStore({
     reducer: {
         auth: authReducer,
         personas: personasReducer,
         info: infoReducer,
-        personaForm: personaFormReducer
+        personaForm: personaFormReducer,
+        chat: chatReducer
     }
 })
 
