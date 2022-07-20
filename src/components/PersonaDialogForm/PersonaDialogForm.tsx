@@ -1,11 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 
-import { BASE_URL } from "../../config/config";
 import { DialogEntity } from "../../pages/PersonaPage/models";
 import { selectLabels } from "../../store/infoSlice";
-import StaticFormMultiInputField from "../StaticFormMultiInputField/StaticFormMultiInputField";
+import { StaticFormMultiInputField } from "../";
+
 import "./PersonaDialogForm.css";
 
 function PersonaDialogForm({
@@ -18,43 +17,14 @@ function PersonaDialogForm({
     dialog: Array<DialogEntity> | undefined,
     disabled: boolean,
     handleFormChange: any
-}) {
-    // const [formState, setFormState] = useState<Array<DialogEntity> | undefined>([]);
-    // const [disabledState, setDisabledState] = useState<boolean>(true);
-    // const [labels, setLabels] = useState<Array<string>>([]);
-    
+}) {    
     const labels = useSelector(selectLabels);
 
     function simpleDeepCopy(obj: any): any {
         return JSON.parse(JSON.stringify(obj));
     }
 
-    // useEffect(() => {
-    //     setFormState(dialog);
-    //     // setDisabledState(true);
-    // }, [dialog]);
-
-    // useEffect(() => {
-    //     setDisabledState(disabled);
-    // }, [disabled]);
-
-    // useEffect(() => {
-    //     handleFormChange(formState);
-    // }, [formState]);
-
-    // useEffect(() => {
-    //     axios({
-    //         method: "get",
-    //         url: `${BASE_URL}/info/labels`,
-    //         withCredentials: true
-    //     })
-    //         .then((res) => setLabels(res.data))
-    //         .catch((error) => console.error(error));
-    // });
-
     function handleMultiInputFieldChange(index: number, e: React.ChangeEvent<HTMLTextAreaElement>, label: string, i: number) {
-        console.log(label, index);
-        console.log(dialog);
         const copyFormState = simpleDeepCopy(dialog);
         copyFormState[index][label][i] = e.target.value;
         handleFormChange(copyFormState);

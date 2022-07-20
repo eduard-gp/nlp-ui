@@ -1,14 +1,28 @@
 import axios from "axios";
-import { type } from "os";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { InputFilter, PersonaDescriptionForm, PersonaDialogForm, VariableForm } from "../../components";
+
+import { InputFilter, PersonaDescriptionForm, PersonaDialogForm } from "../../components";
 import { BASE_URL } from "../../config/config";
-import { getInfo, selectLanguages } from "../../store/infoSlice";
-import { selectDescriptionForm, selectDialogForm, selectDisabledStatus, selectForm, selectLanguageForm, selectSelectedPersona, setDescriptionForm, setDialogForm, setDisabled, setForm, setLanguageForm, setSelectedPersona } from "../../store/personaFormSlice";
+import { getInfo, selectLabels, selectLanguages } from "../../store/infoSlice";
+import {
+    selectDescriptionForm,
+    selectDialogForm,
+    selectDisabledStatus,
+    selectForm,
+    selectLanguageForm,
+    selectSelectedPersona,
+    setDescriptionForm,
+    setDialogForm,
+    setDisabled,
+    setForm,
+    setLanguageForm,
+    setSelectedPersona
+} from "../../store/personaFormSlice";
 import { addPersona, getPersonas, selectPersonas, updatePersona } from "../../store/personasSlice";
 import { AppDispatch } from "../../store/store";
 import { DialogEntity, Persona, SupportedLanguage } from "./models";
+
 import "./PersonaPage.css";
 
 function PersonaPage() {
@@ -24,6 +38,7 @@ function PersonaPage() {
     const dialogForm = useSelector(selectDialogForm);
     const languageForm = useSelector(selectLanguageForm);
     const disabled = useSelector(selectDisabledStatus);
+    const labels = useSelector(selectLabels);
 
     useEffect(() => {
         dispatch(getPersonas());
@@ -115,13 +130,13 @@ function PersonaPage() {
                 "age": "",
                 "sex": ""
             },
-            dialog: [
-                {
+            dialog: labels.map((label: string) => {
+                return {
                     "questions": [""],
                     "answers": [""],
-                    "label": "visit_reason"
+                    "label": label
                 }
-            ],
+            }),
             language: "en"
         }
         dispatch(setForm(newPersona));

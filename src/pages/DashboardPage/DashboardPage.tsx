@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 import { NavBar } from "../../components";
+
 import "./DashboardPage.css";
 
 function DashboardPage() {

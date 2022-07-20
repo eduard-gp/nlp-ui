@@ -9,6 +9,7 @@ import VariableFormMultiInputField from "./VariableFormMultiInputField/VariableF
 import PersonaDescriptionForm from "./PersonaDescriptionForm/PersonaDescriptionForm";
 import PersonaDialogForm from "./PersonaDialogForm/PersonaDialogForm";
 import StaticFormMultiInputField from "./StaticFormMultiInputField/StaticFormMultiInputField";
+import ThemeToggle from "./ThemeToggle/ThemeToggle";
 
 export {
     LoginForm,
@@ -21,5 +22,6 @@ export {
     VariableFormMultiInputField,
     PersonaDescriptionForm,
     PersonaDialogForm,
-    StaticFormMultiInputField
+    StaticFormMultiInputField,
+    ThemeToggle,
 }

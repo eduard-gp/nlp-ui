@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { Persona } from "../pages/PersonaPage/models";
 
 export interface Reply {
@@ -26,7 +27,7 @@ const chatSlice = createSlice({
         addReplay(state, action) {
             state.conversation.push(action.payload);
         },
-        resetConversation(state, action) {
+        resetConversation(state) {
             state.conversation = [];
         }
     },

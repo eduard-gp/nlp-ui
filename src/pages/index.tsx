@@ -5,6 +5,7 @@ import WelcomePage from "./WelcomePage/WelcomePage";
 import DashboardPage from "./DashboardPage/DashboardPage";
 import PersonaPage from "./PersonaPage/PersonaPage";
 import ChatPage from "./ChatPage/ChatPage";
+import ExplorePage from "./ExplorePage/ExplorePage";
 
 export {
     LoginPage,
@@ -14,4 +15,5 @@ export {
     DashboardPage,
     PersonaPage,
     ChatPage,
+    ExplorePage
 }

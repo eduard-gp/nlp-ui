@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import VariableForm from "../VariableForm/VariableForm";
+import { VariableForm } from "../";
 
 function PersonaDescriptionForm({
     title,
@@ -12,17 +11,6 @@ function PersonaDescriptionForm({
     disabled: boolean,
     handleFormChange: any
 }) {
-    // const [disabledState, setDisabledState] = useState<boolean>(disabled);
-    // const [formState, setFormState] = useState<any>(description);
-
-    // useEffect(() => {
-    //     setDisabledState(disabled);
-    // }, [disabled]);
-
-    // useEffect(() => {
-    //     setFormState(description);
-    // })
-
     return (
         <VariableForm
             disabled={disabled}

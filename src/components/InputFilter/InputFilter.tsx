@@ -8,7 +8,6 @@ function InputFilter({
     selectedElement,
     handleSelectedElement,
     placeholder,
-    // initialElement,
     disabled
 }: {
     project: (elem: any) => string,
@@ -16,31 +15,13 @@ function InputFilter({
     selectedElement: any,
     handleSelectedElement: (elem: any) => void,
     placeholder: string,
-    // initialElement?: any,
     disabled: boolean
 }) {
-    // const [filteredElements, setFilterdElements] = useState<Array<any>>([]);
     const [query, setQuery] = useState<string>(project(selectedElement));
 
     useEffect(() => {
         setQuery(project(selectedElement));
     }, [selectedElement]);
-
-    // useEffect(() => {
-    //     const elems = [...elements].sort((element1: any, element2: any) => {
-    //         const identifier1: string = project(element1).toLocaleLowerCase();
-    //         const identifier2: string = project(element2).toLocaleLowerCase();
-    //         return identifier1.localeCompare(identifier2);
-    //     });
-    //     setFilterdElements(elems);
-    // }, [elements, project]);
-
-    // useEffect(() => {
-    //     if (initialElement) {
-    //         setQuery(project(initialElement));
-    //         handleSelectedElement(initialElement);
-    //     }
-    // }, [initialElement, project, handleSelectedElement]);
 
     function handleQueryFocus(e: React.FocusEvent<HTMLInputElement>) {
         const parent = e.target.parentElement;
@@ -67,14 +48,6 @@ function InputFilter({
 
     function handleQueryChange(e: React.ChangeEvent<HTMLInputElement>) {
         setQuery(e.target.value);
-        // const pattern = new RegExp(e.target.value, "i");
-        // const currFilteredElements = elements.filter((element: any) => pattern.test(project(element)));
-        // currFilteredElements.sort((element1: any, element2: any) => {
-        //     const identifier1: string = project(element1).toLocaleLowerCase();
-        //     const identifier2: string = project(element2).toLocaleLowerCase();
-        //     return identifier1.localeCompare(identifier2);
-        // });
-        // setFilterdElements(currFilteredElements);
     }
 
     function filterElements(elements: Array<any>) {

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Persona, SupportedLanguage } from "../pages/PersonaPage/models";
+import { Persona } from "../pages/PersonaPage/models";
 
 interface PersonaForm {
     selectedPersona: Persona | null,

@@ -12,7 +12,8 @@ import {
   WelcomePage,
   DashboardPage,
   PersonaPage,
-  ChatPage
+  ChatPage,
+  ExplorePage
 } from './pages';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 
@@ -32,6 +33,7 @@ root.render(
             <Route path="/dashboard" element={<RequireAuth><DashboardPage /></RequireAuth>}>
               <Route index element={<ChatPage /> }/>
               <Route path="personas" element={<PersonaPage />} />
+              <Route path="explore" element={<ExplorePage />} />
             </Route>
           <Route path="/" element={<WelcomePage />} />
           <Route path="*" element={<NotFoundPage />} />

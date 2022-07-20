@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ThemeToggle } from "../../components";
 
 import "./WelcomePage.css";
 
@@ -7,6 +8,9 @@ function WelcomePage() {
         <div>
             <nav className="welcome-navbar">
                 <ul>
+                    <li className="toggle-container">
+                        <ThemeToggle />
+                    </li>
                     <li>
                         <Link to="/auth/login" className="nav-login-btn">Login</Link>
                     </li>
@@ -16,8 +20,15 @@ function WelcomePage() {
                 </ul>
             </nav>
             <section className="welcome-main-container">
-                <div className="Welcome-inner-container">
-                    Welcome page
+                <div className="welcome-inner-container">
+                    <h1>MedChat</h1>
+                    <p>
+                        An online environment where medical students can talk with a virtual patient in order to develop interpersonal skills in a safe and professional manner.
+                    </p>
+                    <div className="icons-container">
+                        <i className="fa-solid fa-user-doctor"></i>
+                        <i className="fa-solid fa-comment-medical"></i>
+                    </div>
                 </div>
             </section>
         </div>

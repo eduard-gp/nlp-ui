@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 function StaticFormMultiInputField({
     elements,
@@ -15,12 +15,6 @@ function StaticFormMultiInputField({
     handleAddField: (e: React.MouseEvent<HTMLButtonElement>, label: string) => void,
     disabled: boolean,
 }) {
-    // const [disabledState, setDisabledState] = useState<boolean>(disabled);
-
-    // useEffect(() => {
-    //     setDisabledState(disabled);
-    // }, [disabled]);
-
     return (
         <div className="variable-form-group">
             <label><div>{`${label}:`}</div><div>(Type: Static Multi Input)</div></label>

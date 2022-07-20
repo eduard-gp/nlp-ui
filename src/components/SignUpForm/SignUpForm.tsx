@@ -3,10 +3,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import { BASE_URL } from "../../config/config";
-import "./SignUpForm.css"
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../store/store";
 import { setLogginStatus } from "../../store/authSlice";
+
+import "./SignUpForm.css"
 
 interface SignUpFormError {
     username: null | string,

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { VariableFormInputField, VariableFormMultiInputField } from "../";
 
 import "./VariableForm.css";
