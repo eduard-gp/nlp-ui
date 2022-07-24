@@ -41,7 +41,7 @@ function NavBar() {
                             to="/dashboard/personas"
                             className={({ isActive }) => isActive ? "main-navbar-link main-navbar-link-active" : "main-navbar-link"}
                         >
-                            Pacients
+                            Patients
                         </NavLink>
                         <NavLink
                             to="/dashboard/explore"
