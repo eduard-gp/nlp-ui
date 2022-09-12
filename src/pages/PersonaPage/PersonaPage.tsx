@@ -169,7 +169,7 @@ function PersonaPage() {
                 </div>
                 <button className="btn"
                     onClick={handleAddNewPersona}
-                    disabled={!disabled}>New Persona</button>
+                    disabled={!disabled}>New Patient</button>
             </div>
             {form && <div className="persona-edit-menu">
                 <button className="btn"
