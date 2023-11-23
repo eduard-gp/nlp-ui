@@ -41,7 +41,7 @@ scheme that he is unhappy with. The dark theme is adopted by systems like
 Android, iOS, Windows 10 and macOS, because it reduces the strees on the eyes
 for long sessions in front of the screen. Furthermore, the dark colors are
 usually associated with elegance. The evolution of the popularity of the dark
-theme according to google trends is presented bellow.
+theme according to google trends is presented below.
 
 ![Dark theme trend](images/dark_theme_trend.jpg)
 
